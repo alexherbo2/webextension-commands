@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "Commands",
+  "description": "Chrome API to perform browser actions",
+  "version": "0.1.0",
+  "permissions": [
+    "sessions",
+    "notifications"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "icons": {
+    "16": "build/chrome.png",
+    "48": "build/chrome.png",
+    "128": "build/chrome.png"
+  }
+}
