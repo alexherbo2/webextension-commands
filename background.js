@@ -147,16 +147,22 @@ commands['move-tab-last'] = () => {
 commands['detach-tab'] = () => {
   chrome.tabs.query({ currentWindow: true, active: true }, (tabs) => {
     const [tab] = tabs
-    chrome.windows.create({ tabId: tab.id })
+    const pinned = tab.pinned
+    chrome.windows.create({ tabId: tab.id }, (window) => {
+      chrome.tabs.update(tab.id, { pinned })
+    })
   })
 }
 
 commands['attach-tab'] = () => {
   chrome.tabs.query({ currentWindow: true, active: true }, (tabs) => {
     const [tab] = tabs
+    const pinned = tab.pinned
     chrome.tabs.query({ windowId: focusedWindows[focusedWindows.length - 2] }, (tabs) => {
       const target = tabs.find((tab) => tab.active)
-      chrome.tabs.move(tab.id, { windowId: target.windowId, index: modulo(target.index + 1, tabs.length + 1) })
+      chrome.tabs.move(tab.id, { windowId: target.windowId, index: modulo(target.index + 1, tabs.length + 1) }, (tab) => {
+        chrome.tabs.update(tab.id, { pinned })
+      })
     })
   })
 }
