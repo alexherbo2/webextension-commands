@@ -8,6 +8,12 @@
 
 ## Installation
 
+### Installing from the Chrome Web Store
+
+https://chrome.google.com/webstore/detail/commands/cabmgmngameccclicfmcpffnbinnmopc
+
+### Installing from the source
+
 ``` sh
 make
 ```
@@ -21,7 +27,7 @@ See the [Getting Started Tutorial] for more information.
 ## Usage
 
 ``` javascript
-const port = chrome.runtime.connect('<extension-id>')
+const port = chrome.runtime.connect('cabmgmngameccclicfmcpffnbinnmopc')
 port.postMessage({ command: 'new-tab', arguments: ['https://developer.chrome.com/extensions'] })
 ```
 

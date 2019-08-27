@@ -1,4 +1,6 @@
 {
+  // Extension ID: cabmgmngameccclicfmcpffnbinnmopc
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAl7hfbL55fip9+2aqoPQmb8n3BLkhpqPR+oHHsU/vLDC1c8wb+CbmD7Gk2VlCWp0R8b0DDdDpcVgMEvoKkagXsfhOjW7zFG1bh6O4nUOZhzNkEVCZjWMewBE0FnJ74EE8Sz1jQJKqO8AiNiLZNpH6gkiG25CNVUg1bZAKFuqZQ1YNL9fw9EnI13oIetO0+gtkgNY8Rt3WCr+J74oD3Ox10f43Fj/8rF6x8mOfTu1D89MXIYXnN/ssPOZpzee+M0QoWUsS7dduuYDCQA/YjwKYgkZz5fX96ZC1Djwb4HE0Q9ijvTuA7YctEFHqL0KLyeUItCisElVa3cEnAfRWxjjahwIDAQAB",
   "manifest_version": 2,
   "name": "Commands",
   "description": "Chrome API to perform browser actions",
