@@ -4,6 +4,7 @@
   "description": "Chrome API to perform browser actions",
   "version": "0.1.0",
   "permissions": [
+    "downloads",
     "sessions",
     "notifications"
   ],

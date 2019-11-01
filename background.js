@@ -16,6 +16,15 @@ commands['zoom-reset'] = () => {
   chrome.tabs.setZoom(undefined, 0)
 }
 
+// Open URLs
+commands['open'] = (url) => {
+  chrome.tabs.update(undefined, { url })
+}
+
+commands['download'] = (url) => {
+  chrome.downloads.download({ url })
+}
+
 // Create tabs
 
 commands['new-tab'] = (url) => {
