@@ -27,8 +27,8 @@ commands['download'] = (url) => {
 
 // Create tabs
 
-commands['new-tab'] = (url) => {
-  chrome.tabs.create({ url })
+commands['new-tab'] = (url, background = true) => {
+  chrome.tabs.create({ url, active: ! background })
 }
 
 commands['restore-tab'] = () => {
