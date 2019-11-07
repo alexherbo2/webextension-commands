@@ -27,7 +27,7 @@ commands['download'] = (url) => {
 
 // Create tabs
 
-commands['new-tab'] = (url, background = true) => {
+commands['new-tab'] = (url, background = Boolean(url)) => {
   chrome.tabs.create({ url, active: ! background })
 }
 
