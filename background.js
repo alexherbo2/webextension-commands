@@ -1,5 +1,13 @@
 const commands = {}
 
+// Get platform
+
+commands['get-platform'] = function() {
+  chrome.runtime.getPlatformInfo((platformInfo) => {
+    this.port.postMessage({ id: 'get-platform', platform: platformInfo })
+  })
+}
+
 // Zoom
 
 commands['zoom-in'] = (step = 0.1) => {
@@ -257,7 +265,7 @@ chrome.runtime.onConnectExternal.addListener((port) => {
     const command = commands[request.command]
     const arguments = request.arguments || []
     if (command) {
-      command(...arguments)
+      command.apply({ port }, arguments)
     }
   })
 })
