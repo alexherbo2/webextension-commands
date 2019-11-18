@@ -58,6 +58,10 @@ The full list of commands can be found [here](background.js) alongside with [som
 
 See [Cross-extension messaging] for more details.
 
+## References
+
+- [Create a keyboard interface to the web]
+
 [Chrome]: https://google.com/chrome/
 [Chrome Web Store]: https://chrome.google.com/webstore
 
