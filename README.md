@@ -54,7 +54,7 @@ const port = chrome.runtime.connect('commands@alexherbo2.github.com') // for a F
 port.postMessage({ command: 'new-tab', arguments: ['https://developer.chrome.com/extensions'] })
 ```
 
-The full list of commands can be found [here](background.js) alongside with [some examples][Create a keyboard interface to the web].
+The full list of commands can be found [here](background.js) alongside with some examples at [Krabby].
 
 See [Cross-extension messaging] for more details.
 
@@ -76,4 +76,5 @@ See [Cross-extension messaging] for more details.
 
 [Firefox – Your first extension]: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension
 
+[Krabby]: https://krabby.netlify.com
 [Create a keyboard interface to the web]: https://alexherbo2.github.io/blog/chrome/create-a-keyboard-interface-to-the-web/
