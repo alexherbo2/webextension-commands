@@ -44,8 +44,7 @@ commands['restore-tab'] = () => {
 }
 
 commands['duplicate-tab'] = () => {
-  chrome.tabs.query({ currentWindow: true, active: true }, (tabs) => {
-    const [tab] = tabs
+  chrome.tabs.query({ currentWindow: true, active: true }, ([tab]) => {
     chrome.tabs.duplicate(tab.id)
   })
 }
@@ -63,8 +62,7 @@ commands['new-incognito-window'] = () => {
 // Close tabs
 
 commands['close-tab'] = () => {
-  chrome.tabs.query({ currentWindow: true, active: true }, (tabs) => {
-    const [tab] = tabs
+  chrome.tabs.query({ currentWindow: true, active: true }, ([tab]) => {
     chrome.tabs.remove(tab.id)
   })
 }
@@ -146,15 +144,13 @@ commands['move-tab-left'] = (count = 1) => {
 }
 
 commands['move-tab-first'] = () => {
-  chrome.tabs.query({ currentWindow: true, active: true }, (tabs) => {
-    const [tab] = tabs
+  chrome.tabs.query({ currentWindow: true, active: true }, ([tab]) => {
     chrome.tabs.move(tab.id, { index: 0 })
   })
 }
 
 commands['move-tab-last'] = () => {
-  chrome.tabs.query({ currentWindow: true, active: true }, (tabs) => {
-    const [tab] = tabs
+  chrome.tabs.query({ currentWindow: true, active: true }, ([tab]) => {
     chrome.tabs.move(tab.id, { index: -1 })
   })
 }
@@ -162,8 +158,7 @@ commands['move-tab-last'] = () => {
 // Detach tabs
 
 commands['detach-tab'] = () => {
-  chrome.tabs.query({ currentWindow: true, active: true }, (tabs) => {
-    const [tab] = tabs
+  chrome.tabs.query({ currentWindow: true, active: true }, ([tab]) => {
     const pinned = tab.pinned
     chrome.windows.create({ tabId: tab.id }, (window) => {
       chrome.tabs.update(tab.id, { pinned })
@@ -172,8 +167,7 @@ commands['detach-tab'] = () => {
 }
 
 commands['attach-tab'] = () => {
-  chrome.tabs.query({ currentWindow: true, active: true }, (tabs) => {
-    const [tab] = tabs
+  chrome.tabs.query({ currentWindow: true, active: true }, ([tab]) => {
     const pinned = tab.pinned
     chrome.tabs.query({ windowId: focusedWindows[focusedWindows.length - 2] }, (tabs) => {
       const target = tabs.find((tab) => tab.active)
@@ -187,8 +181,7 @@ commands['attach-tab'] = () => {
 // Discard tabs
 
 commands['discard-tab'] = () => {
-  chrome.tabs.query({ currentWindow: true, active: true }, (tabs) => {
-    const [tab] = tabs
+  chrome.tabs.query({ currentWindow: true, active: true }, ([tab]) => {
     chrome.tabs.discard(tab.id)
   })
 }
@@ -196,8 +189,7 @@ commands['discard-tab'] = () => {
 // Mute tabs
 
 commands['mute-tab'] = () => {
-  chrome.tabs.query({ currentWindow: true, active: true }, (tabs) => {
-    const [tab] = tabs
+  chrome.tabs.query({ currentWindow: true, active: true }, ([tab]) => {
     chrome.tabs.update(tab.id, { muted: ! tab.mutedInfo.muted })
   })
 }
@@ -216,8 +208,7 @@ commands['mute-all-tabs'] = () => {
 // Pin tabs
 
 commands['pin-tab'] = () => {
-  chrome.tabs.query({ currentWindow: true, active: true }, (tabs) => {
-    const [tab] = tabs
+  chrome.tabs.query({ currentWindow: true, active: true }, ([tab]) => {
     chrome.tabs.update(tab.id, { pinned: ! tab.pinned })
   })
 }
