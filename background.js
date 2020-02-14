@@ -39,6 +39,15 @@ commands['new-tab'] = (url, background = Boolean(url)) => {
   chrome.tabs.create({ url, active: ! background })
 }
 
+// New tab to the right
+commands['new-tab-right'] = () => {
+  chrome.tabs.query({ currentWindow: true, active: true }, ([openerTab]) => {
+    chrome.tabs.create({
+      index: openerTab.index + 1
+    })
+  })
+}
+
 commands['restore-tab'] = () => {
   chrome.sessions.restore()
 }
