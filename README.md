@@ -3,7 +3,9 @@
 [Chrome]: https://google.com/chrome/
 [Firefox]: https://mozilla.org/firefox/
 
-Chrome API to perform browser actions, such as opening a new tab.
+[WebExtension] API to perform browser actions, such as opening a new tab.
+
+[WebExtension]: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions
 
 ## Dependencies
 
