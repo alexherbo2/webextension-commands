@@ -8,6 +8,11 @@ chrome.windows.onFocusChanged.addListener((windowId) => {
   if (windowId === chrome.windows.WINDOW_ID_NONE) {
     return
   }
+  // Skip duplicates
+  const lastFocusedWindowId = state.focusedWindowIds[state.focusedWindowIds.length - 1]
+  if (windowId === lastFocusedWindowId) {
+    return
+  }
   // Add the last focused window
   state.focusedWindowIds.push(windowId)
   // Keep the last two focused windows
