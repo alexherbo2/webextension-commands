@@ -225,15 +225,20 @@ commands['detach-tab'] = () => {
   })
 }
 
+// Moves the current tab to the right of the active tab of the previous window
+// and activates it.
 commands['attach-tab'] = () => {
-  chrome.tabs.query({ currentWindow: true, active: true }, ([tab]) => {
-    const pinned = tab.pinned
-    const lastFocusedWindowId = state.focusedWindowIds[state.focusedWindowIds.length - 2]
-    chrome.tabs.query({ windowId: lastFocusedWindowId }, (tabs) => {
-      const targetTab = tabs.find((tab) => tab.active)
-      const targetedTabIndex = modulo(targetTab.index + 1, tabs.length + 1)
-      chrome.tabs.move(tab.id, { windowId: targetTab.windowId, index: targetedTabIndex }, (tab) => {
-        chrome.tabs.update(tab.id, { pinned })
+  const lastFocusedWindowId = state.focusedWindowIds[state.focusedWindowIds.length - 2]
+  chrome.tabs.query({ windowId: lastFocusedWindowId }, (tabs) => {
+    const targetTab = tabs.find((tab) => tab.active)
+    const pinned = targetTab.pinned
+    const targetedTabIndex = modulo(targetTab.index + 1, tabs.length + 1)
+    chrome.tabs.query({ currentWindow: true, active: true }, ([tab]) => {
+      // Issue: Moving a tab to another window does not preserve the pinned state.
+      chrome.tabs.move(tab.id, { windowId: targetTab.windowId, index: -1 }, (tab) => {
+        // Make the tab active in its window.
+        chrome.tabs.update(tab.id, { active: true, pinned })
+        chrome.tabs.move(tab.id, { index: targetedTabIndex })
       })
     })
   })
