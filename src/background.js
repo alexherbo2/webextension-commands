@@ -244,6 +244,26 @@ commands['attach-tab'] = () => {
   })
 }
 
+// Moves the tabs in the current window to the right of the active tab of the previous window.
+commands['attach-tabs'] = () => {
+  const lastFocusedWindowId = state.focusedWindowIds[state.focusedWindowIds.length - 2]
+  chrome.tabs.query({ windowId: lastFocusedWindowId }, (tabs) => {
+    const targetTab = tabs.find((tab) => tab.active)
+    const pinned = targetTab.pinned
+    const targetedTabIndex = modulo(targetTab.index + 1, tabs.length + 1)
+    chrome.tabs.query({ currentWindow: true }, (tabs) => {
+      const tabIds = tabs.map((tab) => tab.id)
+      // Issue: Moving a tab to another window does not preserve the pinned state.
+      chrome.tabs.move(tabIds, { windowId: targetTab.windowId, index: -1 }, (tabs) => {
+        for (const tabId of tabIds) {
+          chrome.tabs.update(tabId, { pinned })
+        }
+        chrome.tabs.move(tabIds, { index: targetedTabIndex })
+      })
+    })
+  })
+}
+
 // Discard tabs ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
 commands['discard-tab'] = () => {
