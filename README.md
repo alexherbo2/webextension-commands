@@ -1,11 +1,10 @@
-# Commands for [Chrome] and [Firefox]
+# Commands for [Chrome] and [Firefox] – [WebExtensions]
 
 [Chrome]: https://google.com/chrome/
 [Firefox]: https://mozilla.org/firefox/
+[WebExtensions]: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions
 
-[WebExtension] API to perform browser actions, such as opening a new tab.
-
-[WebExtension]: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions
+[WebExtension][WebExtensions] API to perform browser actions, such as opening a new tab.
 
 ## Dependencies
 
