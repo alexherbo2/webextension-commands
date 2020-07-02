@@ -306,7 +306,7 @@ commands['notify'] = (id, options) => {
   properties.title = ''
   properties.message = ''
   properties.type = 'basic'
-  properties.iconUrl = 'packages/chrome.svg'
+  properties.iconUrl = 'packages/tools.svg'
   Object.assign(properties, options)
   chrome.notifications.getAll((notifications) => {
     const notification = notifications[id]

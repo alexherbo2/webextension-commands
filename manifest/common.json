@@ -15,8 +15,8 @@
     "persistent": false
   },
   "icons": {
-    "16": "packages/chrome.png",
-    "48": "packages/chrome.png",
-    "128": "packages/chrome.png"
+    "16": "packages/tools.png",
+    "48": "packages/tools.png",
+    "128": "packages/tools.png"
   }
 }
