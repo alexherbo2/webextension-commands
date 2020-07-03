@@ -4,6 +4,8 @@
 [Firefox]: https://mozilla.org/firefox/
 [WebExtensions]: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions
 
+<img src="https://github.com/FortAwesome/Font-Awesome/raw/master/svgs/solid/tools.svg" height="16" align="right">
+
 [WebExtension][WebExtensions] API to perform browser actions, such as opening a new tab.
 
 ## Dependencies
