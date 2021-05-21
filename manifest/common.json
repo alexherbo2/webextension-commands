@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Commands",
   "description": "WebExtension API to perform browser actions",
   "version": "0.1.0",
@@ -9,10 +9,7 @@
     "notifications"
   ],
   "background": {
-    "scripts": [
-      "src/background.js"
-    ],
-    "persistent": false
+    "service_worker": "background.js"
   },
   "icons": {
     "16": "packages/tools.png",
