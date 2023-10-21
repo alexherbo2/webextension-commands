@@ -8,9 +8,6 @@
     "sessions",
     "notifications"
   ],
-  "background": {
-    "service_worker": "background.js"
-  },
   "icons": {
     "16": "packages/tools.png",
     "48": "packages/tools.png",
